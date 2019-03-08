@@ -14,31 +14,31 @@ window.onload = init;
 function init() {
 
     // When the user clicks the append button, append the given number to the list.
-    document.querySelector('')
+    document.querySelector('#append')
         .addEventListener('click', appendToList);
 
     // When the user clicks the remove button, remove the number at the index given from the list.
-    document.querySelector('')
+    document.querySelector('#remove')
         .addEventListener('click', removeFromList);
 
     // When the user clicks the clear button, remove all items from the list.
-    document.querySelector('')
+    document.querySelector('#clear')
         .addEventListener('click', clearList);
 
     // When the user clicks the add button, add the value to each item.
-    document.querySelector('')
+    document.querySelector('#add')
         .addEventListener('click', addToAll);
 
     // When the user clicks the add button, add the value to each item.
-    document.querySelector('')
+    document.querySelector('#subtract')
         .addEventListener('click', subtractFromAll);
         
     // When the user clicks the multiply button, multiply the value by each item.
-    document.querySelector('')
+    document.querySelector('#multiply')
         .addEventListener('click', multiplyByAll);
         
     // When the user clicks the divide button, divide the value from each item.
-    document.querySelector('')
+    document.querySelector('#divide')
         .addEventListener('click', divideFromAll);
 }
 
