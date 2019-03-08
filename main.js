@@ -55,7 +55,11 @@ function appendToList(event) {
 
     // Get the value we're going to append from the input field.
     let number = document.querySelector('#list-number').value;
-
+    //only run when there is a value
+    if(numbers !== '') {
+        numbers.push(number);
+    }
+    console.log(numbers)
     // Append the number to our array.
     // Hint: here (and elsewhere), watch the TYPE of the value above.
     // Research `typeof` operator if you're not sure.
