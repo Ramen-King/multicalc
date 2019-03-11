@@ -56,9 +56,11 @@ function appendToList(event) {
     // Get the value we're going to append from the input field.
     let number = document.querySelector('#list-number').value;
     //only run when there is a value
-    if(numbers !== '') {
-        numbers.push(number);
+    let newNum = Number(number);
+    if(number !== '') {
+        numbers.push(newNum); 
     }
+    addToUL(newNum);
     console.log(numbers)
     // Append the number to our array.
     // Hint: here (and elsewhere), watch the TYPE of the value above.
@@ -74,10 +76,9 @@ function removeFromList(event) {
     event.preventDefault();
 
     // Get the index we'll remove from the input field.
-    let index = document.querySelector('').value;
-
+    let index = document.querySelector('#number-list').value;
     // Remove the number at that index from the list.
-
+    
     /*
         ### Hints:
 
@@ -190,8 +191,8 @@ function clearUL() {
 
 // Append to the UL.
 function addToUL(numberToAppend) {
-    const UL = document.querySelector('');
-    const newLI = document.createElement('');
+    const UL = document.querySelector('#number-list');
+    const newLI = document.createElement('li');
     newLI.innerText = numberToAppend;
     UL.appendChild(newLI);
 }
