@@ -39,6 +39,9 @@ function init() {
     // When the user clicks the divide button, divide the value from each item.
     document.querySelector('#divide')
         .addEventListener('click', divideFromAll);
+    // When the user clicks the 🥧button, multiplies pi the value to each item.
+        document.querySelector('#divide')
+        .addEventListener('click', divideFromAll);
 }
 
 /*
@@ -160,7 +163,7 @@ function multiplyByAll(event) {
     
     // Grab value to add.
     let numberToMultiply = document.querySelector('#numberForMath').value;
-    let newNumm = Number(numberToMultiply);
+    let newNum = Number(numberToMultiply);
     for(let i = 0; i < numbers.length; i++){
         if(numberToMultiply !== ''){
             numbers[i] = numbers[i] * newNum;
@@ -191,6 +194,10 @@ function divideFromAll(event) {
 
     // Update our html.
     updatedUL();
+}
+
+function pi(event){
+
 }
 
 
