@@ -5,7 +5,7 @@
 */
 // global array
 let numbers = [];
-let newNum = Number();
+
 // When the window loads, set up event listeners
 window.onload = init;
 
@@ -160,7 +160,7 @@ function multiplyByAll(event) {
     
     // Grab value to add.
     let numberToMultiply = document.querySelector('#numberForMath').value;
-    newNumm = Number(numberToMultiply);
+    let newNumm = Number(numberToMultiply);
     for(let i = 0; i < numbers.length; i++){
         if(numberToMultiply !== ''){
             numbers[i] = numbers[i] * newNum;
@@ -180,7 +180,7 @@ function divideFromAll(event) {
 
     // Grab value to add.
     let numberToDivide = document.querySelector('#numberForMath').value;
-    newNum = Numbers(numberToDivide);
+    let newNum = Numbers(numberToDivide);
     // Divide value from everything on the list.
     for(let i = 0; i < numbers.length; i++){
         if(numbertToDivide !== 0){
