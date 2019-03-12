@@ -3,10 +3,9 @@
 # = Initialization
 # ========================================================
 */
-
 // global array
 let numbers = [];
-
+let newNum = Number();
 // When the window loads, set up event listeners
 window.onload = init;
 
@@ -60,14 +59,14 @@ function appendToList(event) {
     if(number !== '') {
         numbers.push(newNum); 
     }
-    addToUL(newNum);
-    console.log(numbers)
+    
     // Append the number to our array.
     // Hint: here (and elsewhere), watch the TYPE of the value above.
     // Research `typeof` operator if you're not sure.
 
     // Update our html.
-
+    addToUL(newNum);
+    console.log(numbers)
 
 }
 // Remove from the list.
@@ -78,20 +77,23 @@ function removeFromList(event) {
     // Get the index we'll remove from the input field.
     let index = document.querySelector('#number-list').value;
     // Remove the number at that index from the list.
+    numbers.splice(index, 1);
+        
     
     /*
-        ### Hints:
-
-        * You can either loop through... or use array methods. Check out concat!
-
-        * Either way, though, we've declared out array using `let` this time,
-        and reassigning the array is probably the best approach with our current
-        tools.
+    ### Hints:
+    
+    * You can either loop through... or use array methods. Check out concat!
+    
+    * Either way, though, we've declared out array using `let` this time,
+    and reassigning the array is probably the best approach with our current
+    tools.
     */
-
-    // Update our html.
-
-
+   
+   // Update our html.
+   
+   updateUL();
+   console.log(numbers) 
 }
 
 function clearList(event) {
@@ -102,7 +104,8 @@ function clearList(event) {
 
 
     // Update our html.
-    
+    clearUL()
+     
 }
 
 /*
@@ -117,13 +120,19 @@ function addToAll(event) {
     event.preventDefault();
 
     // Grab value to add.
-    let numberToAdd = document.querySelector('').value;
-
+    let numberToAdd = document.querySelector('#numberForMath').value;
+    let newNum = Number(numberToAdd);
     // Add value to everything on the list.
-
+    for(let i = 0; i < numbers.length; i++) {
+        if(numberToAdd !== ''){
+            numbers[i] = numbers[i] + newNum;
+            console.log(numbers[i])
+        }
+        
+    }
 
     // Update our html.
-
+    updateUL();
 }
 
 function subtractFromAll(event) {
@@ -131,13 +140,18 @@ function subtractFromAll(event) {
     event.preventDefault();
     
     // Grab value to add.
-    let numberToSubtract = document.querySelector('').value;
-    
+    let numberToSubtract = document.querySelector('#numberForMath').value;
+    let newNum = Number(numberToSubtract);
+    for(let i = 0; i < numbers.length; i++) {
+        if(numberToSubtract !== ''){
+            numbers[i] = numbers[i] - newNum;
+            console.log(numbers[i]);
+        }
+    }
     // Add value to everything on the list.
-  
-
+    
     // Update our html.
-
+    updateUL();
 }
 
 function multiplyByAll(event) {
@@ -145,13 +159,19 @@ function multiplyByAll(event) {
     event.preventDefault();
     
     // Grab value to add.
-    let numberToMultiply = document.querySelector('').value;
-    
+    let numberToMultiply = document.querySelector('#numberForMath').value;
+    newNumm = Number(numberToMultiply);
+    for(let i = 0; i < numbers.length; i++){
+        if(numberToMultiply !== ''){
+            numbers[i] = numbers[i] * newNum;
+            console.log(numbers);
+        }
+    }
     // Add value to everything on the list.
     
     
     // Update our html.
-    
+    updateUL();
 }
 
 function divideFromAll(event) {
@@ -159,13 +179,18 @@ function divideFromAll(event) {
     event.preventDefault();
 
     // Grab value to add.
-    let numberToDivide = document.querySelector('').value;
-
+    let numberToDivide = document.querySelector('#numberForMath').value;
+    newNum = Numbers(numberToDivide);
     // Divide value from everything on the list.
-    
+    for(let i = 0; i < numbers.length; i++){
+        if(numbertToDivide !== 0){
+            numbers[i] = numbers[i] % newNum;
+            console.log(numbers);
+        }
+    }
 
     // Update our html.
-    
+    updatedUL();
 }
 
 
@@ -183,7 +208,7 @@ function updateUL() {
 }
 
 function clearUL() {
-    const ul = document.querySelector('');
+    const ul = document.querySelector('#number-list');
     while(ul.hasChildNodes()) {
         ul.removeChild(ul.firstChild);
     }
