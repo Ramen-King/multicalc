@@ -40,8 +40,8 @@ function init() {
     document.querySelector('#divide')
         .addEventListener('click', divideFromAll);
     // When the user clicks the 🥧button, multiplies pi the value to each item.
-        document.querySelector('#divide')
-        .addEventListener('click', divideFromAll);
+        document.querySelector('#pi')
+        .addEventListener('click', piToAll);
 }
 
 /*
@@ -104,11 +104,12 @@ function clearList(event) {
     event.preventDefault();
 
     // Clear the array of all values.
-
-
+    if(numbers !== 0){
+        numbers = [];
+    }
+    console.log(numbers)
     // Update our html.
-    clearUL()
-     
+    updateUL()
 }
 
 /*
@@ -196,8 +197,15 @@ function divideFromAll(event) {
     updatedUL();
 }
 
-function pi(event){
-
+function piToAll(event){
+    //Prevents page from reloading on button press.
+    event.preventDefault();
+    //apply pi to each item in the list.
+    for(let i = 0; i < numbers.length; i++)
+    numbers[i] = numbers[i] * Math.PI;
+    console.log(numbers)
+    // Apply pi to all numbers on the list.
+    updateUL();
 }
 
 
