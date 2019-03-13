@@ -5,6 +5,7 @@
 */
 // global array
 let numbers = [];
+let roundedNumbers =[];
 
 // When the window loads, set up event listeners
 window.onload = init;
@@ -54,21 +55,21 @@ function init() {
 function appendToList(event) {
     // Make sure page doesn't reload on button press.
     event.preventDefault();
-
     // Get the value we're going to append from the input field.
     let number = document.querySelector('#list-number').value;
     //only run when there is a value
     let newNum = Number(number);
-    if(number !== '') {
-        numbers.push(newNum); 
-    }
+    if(number !== ''){
+        numbers.push(newNum);
+        addToUL(newNum);
+    } 
     
     // Append the number to our array.
     // Hint: here (and elsewhere), watch the TYPE of the value above.
     // Research `typeof` operator if you're not sure.
 
     // Update our html.
-    addToUL(newNum);
+    
     console.log(numbers)
 
 }
@@ -122,10 +123,10 @@ function clearList(event) {
 function addToAll(event) {
     // Make sure page doesn't reload on button press.
     event.preventDefault();
-
+    if(document.querySelector('#numberForMath').value === '')
     // Grab value to add.
-    let numberToAdd = document.querySelector('#numberForMath').value;
-    let newNum = Number(numberToAdd);
+    // let numberToAdd = document.querySelector('#numberForMath').value;
+    // let newNum = Number(numberToAdd);
     // Add value to everything on the list.
     for(let i = 0; i < numbers.length; i++) {
         if(numberToAdd !== ''){
@@ -184,17 +185,17 @@ function divideFromAll(event) {
 
     // Grab value to add.
     let numberToDivide = document.querySelector('#numberForMath').value;
-    let newNum = Numbers(numberToDivide);
+    let newNum = Number(numberToDivide);   
     // Divide value from everything on the list.
     for(let i = 0; i < numbers.length; i++){
-        if(numbertToDivide !== 0){
+        if(numberToDivide !== ''){
             numbers[i] = numbers[i] % newNum;
             console.log(numbers);
         }
     }
 
     // Update our html.
-    updatedUL();
+    updateUL();
 }
 
 function piToAll(event){
@@ -202,6 +203,7 @@ function piToAll(event){
     event.preventDefault();
     //apply pi to each item in the list.
     for(let i = 0; i < numbers.length; i++)
+    //numbers[i] = (Math.round(numbers[i] * Math.PI))
     numbers[i] = numbers[i] * Math.PI;
     console.log(numbers)
     // Apply pi to all numbers on the list.
@@ -218,6 +220,7 @@ function piToAll(event){
 function updateUL() {
     clearUL();
     for(let i = 0; i < numbers.length; i++) {
+        if(numbers.length)
         addToUL(numbers[i]);
     }
 }
