@@ -5,7 +5,6 @@
 */
 // global array
 let numbers = [];
-let roundedNumbers =[];
 
 // When the window loads, set up event listeners
 window.onload = init;
@@ -69,7 +68,7 @@ function appendToList(event) {
     // Research `typeof` operator if you're not sure.
 
     // Update our html.
-    
+    updateUL()
     console.log(numbers)
 
 }
@@ -123,10 +122,9 @@ function clearList(event) {
 function addToAll(event) {
     // Make sure page doesn't reload on button press.
     event.preventDefault();
-    if(document.querySelector('#numberForMath').value === '')
     // Grab value to add.
-    // let numberToAdd = document.querySelector('#numberForMath').value;
-    // let newNum = Number(numberToAdd);
+    let numberToAdd = document.querySelector('#numberForMath').value;
+    let newNum = Number(numberToAdd);
     // Add value to everything on the list.
     for(let i = 0; i < numbers.length; i++) {
         if(numberToAdd !== ''){
@@ -234,8 +232,8 @@ function clearUL() {
 
 // Append to the UL.
 function addToUL(numberToAppend) {
-    const UL = document.querySelector('#number-list');
+    const ul = document.querySelector('#number-list');
     const newLI = document.createElement('li');
     newLI.innerText = numberToAppend;
-    UL.appendChild(newLI);
+    ul.appendChild(newLI);
 }
